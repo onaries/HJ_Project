@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Smart Power Management System</string>
+    <string name="user_id">ID</string>
+    <string name="user_pwd">Password</string>
+    <string name="user_signin">Sign in</string>
+    <string name="user_signup">Sign Up</string>
+    <string name="user_copyright">Copyright</string>
+    <string name="user_id_hint">아이디를 입력하세요</string>
+    <string name="user_pwd_hint">비밀번호를 입력하세요</string>
+</resources>

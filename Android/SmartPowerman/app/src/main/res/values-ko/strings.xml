@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">스마트 전력 관리 시스템</string>
+    <string name="user_id">아이디</string>
+    <string name="user_pwd">비밀번호</string>
+    <string name="user_signin">로그인</string>
+    <string name="user_signup">등록</string>
+    <string name="user_copyright">Copyright</string>
+    <string name="user_id_hint">아이디를 입력하세요</string>
+    <string name="user_pwd_hint">비밀번호를 입력하세요</string>
+</resources>
