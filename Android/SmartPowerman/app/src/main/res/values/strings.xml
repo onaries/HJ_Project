@@ -7,4 +7,5 @@
     <string name="user_copyright">Copyright</string>
     <string name="user_id_hint">아이디를 입력하세요</string>
     <string name="user_pwd_hint">비밀번호를 입력하세요</string>
+    <string name="str_cancel">Cancel</string>
 </resources>
