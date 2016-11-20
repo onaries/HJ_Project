@@ -1,6 +1,9 @@
 package com.imagelab.smartpowerman;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +13,7 @@ import android.widget.Toast;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.jar.Manifest;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -44,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        checkPermission();
     }
 
     @Override
@@ -100,5 +105,28 @@ public class LoginActivity extends AppCompatActivity {
             MD5 = null;
         }
         return MD5;
+    }
+
+    @TargetApi(Build.VERSION_CODES.M)
+    public void checkPermission(){
+        if (Build.VERSION.SDK_INT >= 23){
+            if (checkSelfPermission(android.Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                    || checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+                    || checkSelfPermission(android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || checkSelfPermission(android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                    || checkSelfPermission(android.Manifest.permission.ACCESS_NETWORK_STATE) != PackageManager.PERMISSION_GRANTED
+                    || checkSelfPermission(android.Manifest.permission.VIBRATE) != PackageManager.PERMISSION_GRANTED
+                    || checkSelfPermission(android.Manifest.permission.GET_ACCOUNTS) != PackageManager.PERMISSION_GRANTED
+                    ){
+                requestPermissions(new String[]{android.Manifest.permission.READ_EXTERNAL_STORAGE,
+                        android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                        android.Manifest.permission.ACCESS_FINE_LOCATION,
+                        android.Manifest.permission.ACCESS_COARSE_LOCATION,
+                        android.Manifest.permission.ACCESS_NETWORK_STATE,
+                        android.Manifest.permission.VIBRATE,
+                        android.Manifest.permission.GET_ACCOUNTS
+                }, 1);
+            }
+        }
     }
 }
