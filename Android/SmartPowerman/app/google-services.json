@@ -1,0 +1,35 @@
+{
+  "project_info": {
+    "project_number": "99975034382",
+    "project_id": "smart-power-management-system"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:99975034382:android:54fe4117b79f9873",
+        "android_client_info": {
+          "package_name": "com.imagelab.smartpowerman"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADjGUdF7ovbuZjXA6np7OZs756eN_nSc0"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

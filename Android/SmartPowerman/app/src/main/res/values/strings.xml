@@ -25,4 +25,7 @@
     <string name="user_idcheck">중복확인</string>
     <string name="user_email">E-Mail</string>
     <string name="user_email_hint">이메일을 입력하세요</string>
+
+    <!-- GCM Sender ID -->
+    <string name="gcm_defaultSenderId">99975034382</string>
 </resources>

@@ -49,6 +49,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        // 권한 설정
         checkPermission();
     }
 
@@ -108,6 +109,7 @@ public class LoginActivity extends AppCompatActivity {
         return MD5;
     }
 
+    // 마시멜로우 이상에서 권한 설정
     @TargetApi(Build.VERSION_CODES.M)
     public void checkPermission(){
         if (Build.VERSION.SDK_INT >= 23){

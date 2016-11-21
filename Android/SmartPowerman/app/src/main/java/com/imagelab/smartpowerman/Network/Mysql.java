@@ -11,6 +11,7 @@ import java.net.URL;
  * Created by ksw89 on 2016-11-21.
  */
 
+// Mysql
 public class Mysql{
 
     private String sUrl = null;
