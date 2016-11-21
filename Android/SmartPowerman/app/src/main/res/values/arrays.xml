@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sp_type">
+        <item>주택용(저압)</item>
+        <item>주택용(고압)</item>
+    </string-array>
+    <string-array name="sp_date">
+        <item>매월 1일</item>
+        <item>매월 2일</item>
+        <item>매월 3일</item>
+        <item>매월 4일</item>
+        <item>매월 5일</item>
+        <item>매월 6일</item>
+        <item>매월 7일</item>
+        <item>매월 8일</item>
+        <item>매월 9일</item>
+        <item>매월 10일</item>
+        <item>매월 11일</item>
+        <item>매월 12일</item>
+        <item>매월 13일</item>
+        <item>매월 14일</item>
+        <item>매월 15일</item>
+        <item>매월 16일</item>
+        <item>매월 17일</item>
+        <item>매월 18일</item>
+        <item>매월 19일</item>
+        <item>매월 20일</item>
+        <item>매월 21일</item>
+        <item>매월 22일</item>
+        <item>매월 23일</item>
+        <item>매월 24일</item>
+        <item>매월 25일</item>
+        <item>매월 26일</item>
+        <item>매월 27일</item>
+        <item>매월 28일</item>
+        <item>매월 말일</item>
+    </string-array>
+</resources>

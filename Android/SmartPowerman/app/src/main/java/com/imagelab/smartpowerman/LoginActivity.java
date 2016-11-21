@@ -6,6 +6,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
 
             // 테스트
             Toast.makeText(getApplicationContext(), id + " " + pwd_md5, Toast.LENGTH_LONG).show();
-
+            Log.i("MD5", pwd_md5);
         }
     }
 

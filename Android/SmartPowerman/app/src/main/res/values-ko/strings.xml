@@ -8,5 +8,22 @@
     <string name="user_copyright">Copyright</string>
     <string name="user_id_hint">아이디를 입력하세요</string>
     <string name="user_pwd_hint">비밀번호를 입력하세요</string>
-    <string name="str_cancel">Cancel</string>
+    <string name="str_cancel">취소</string>
+    <string name="user_phone_hint">전화번호를 입력하세요</string>
+    <string name="user_phone">전화번호</string>
+    <string name="user_location">위치 정보 공유</string>
+    <string name="str_agree">동의</string>
+    <string name="str_disagree">동의하지 않음</string>
+    <string name="user_noti">알림 허용</string>
+    <string name="str_select">선택사항</string>
+    <string name="user_type">계약종별</string>
+    <string name="user_date">검침일</string>
+    <string name="str_house_type">주거구분</string>
+    <string name="str_house_yes">주거용</string>
+    <string name="str_house_no">비주거용</string>
+    <string name="user_pwd2">비밀번호 재입력</string>
+    <string name="user_pwd2_hint">비밀번호를 재입력하세요</string>
+    <string name="user_idcheck">중복확인</string>
+    <string name="user_email">이메일</string>
+    <string name="user_email_hint">이메일을 입력하세요</string>
 </resources>
