@@ -34,7 +34,8 @@
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
             android:id="@+id/register_id"
-            android:hint="@string/user_id_hint" />
+            android:hint="@string/user_id_hint"
+            android:backgroundTint="@android:color/transparent" />
 
         <Button
             android:text="@string/user_idcheck"
@@ -63,7 +64,8 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/register_pwd"
-            android:hint="@string/user_pwd_hint" />
+            android:hint="@string/user_pwd_hint"
+            android:backgroundTint="@android:color/transparent" />
 
 
     </LinearLayout>
@@ -85,7 +87,31 @@
             android:inputType="textPassword"
             android:ems="10"
             android:id="@+id/register_pwd2"
-            android:hint="@string/user_pwd2_hint" />
+            android:hint="@string/user_pwd2_hint"
+            android:backgroundTint="@android:color/transparent" />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:text="@string/user_name"
+            android:layout_height="match_parent"
+            android:layout_width="100dp"
+            android:gravity="center" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:id="@+id/register_name"
+            android:hint="@string/user_name_hint"
+            android:inputType="phone"
+            android:backgroundTint="@android:color/transparent" />
 
 
     </LinearLayout>
@@ -107,7 +133,8 @@
             android:ems="10"
             android:id="@+id/register_phone"
             android:hint="@string/user_phone_hint"
-            android:inputType="phone" />
+            android:inputType="phone"
+            android:backgroundTint="@android:color/transparent" />
 
 
     </LinearLayout>
@@ -129,42 +156,12 @@
             android:ems="10"
             android:id="@+id/register_email"
             android:hint="@string/user_email_hint"
-            android:inputType="textEmailAddress" />
+            android:inputType="textEmailAddress"
+            android:backgroundTint="@android:color/transparent" />
 
 
     </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
 
-        <TextView
-            android:text="@string/user_location"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:layout_width="175dp" />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:id="@+id/rb_location">
-            <RadioButton
-                android:text="@string/str_agree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rb_location_agree"
-                android:checked="true" />
-
-            <RadioButton
-                android:text="@string/str_disagree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/rb_location_disagree" />
-        </RadioGroup>
-
-    </LinearLayout>
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"

@@ -28,4 +28,6 @@
 
     <!-- GCM Sender ID -->
     <string name="gcm_defaultSenderId">99975034382</string>
+    <string name="user_name">Name</string>
+    <string name="user_name_hint">write your name</string>
 </resources>
