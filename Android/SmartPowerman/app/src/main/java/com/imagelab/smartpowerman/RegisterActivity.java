@@ -67,7 +67,8 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-
+        // ActionBar 설정
+        setTitle("등록");
 
         // ID 중복확인
         register_id.setOnEditorActionListener(new TextView.OnEditorActionListener() {

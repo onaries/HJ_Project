@@ -67,7 +67,7 @@
         </service>
         <service
             android:name=".Notification.RegistrationIntentService"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <!--
         <receiver
@@ -89,7 +89,8 @@
         </service>
         -->
 
-        <activity android:name=".Register2Activity"></activity>
+        <activity android:name=".Register2Activity" />
+        <activity android:name=".ForgotActivity"></activity>
     </application>
 
 </manifest>

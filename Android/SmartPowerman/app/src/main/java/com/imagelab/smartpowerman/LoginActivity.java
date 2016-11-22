@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.imagelab.smartpowerman.Handler.BackPressCloseHandler;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.jar.Manifest;
@@ -21,8 +23,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText idEditText;
     private EditText pwdEditText;
 
-    private Button signinButton;
-    private Button signupButton;
+    private Button signinButton, signupButton, fotgotButton;
+
+    private BackPressCloseHandler backPressCloseHandler;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         pwdEditText = (EditText) findViewById(R.id.pwdEditText);
         signinButton = (Button) findViewById(R.id.signInButton);
         signupButton = (Button) findViewById(R.id.signUpButton);
+        fotgotButton = (Button) findViewById(R.id.forgotButton);
 
         // 버튼 클릭
         signinButton.setOnClickListener(new View.OnClickListener() {
@@ -48,14 +52,36 @@ public class LoginActivity extends AppCompatActivity {
                 signupButton_clicked(view);
             }
         });
+        fotgotButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                forgotButton_clicked(view);
+            }
+        });
 
         // 권한 설정
         checkPermission();
+
+        // BackButton 핸들러 설정
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
+        // ActionBar 설정
+        setTitle("로그인");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        // ID, PWD 값 비우기
+        idEditText.setText("");
+        pwdEditText.setText("");
+    }
+
+    // Back버튼 클릭 시
+    @Override
+    public void onBackPressed() {
+        backPressCloseHandler.onBackPressed();
     }
 
     // 로그인 버튼 클릭 시
@@ -78,6 +104,10 @@ public class LoginActivity extends AppCompatActivity {
             // 테스트
             Toast.makeText(getApplicationContext(), id + " " + pwd_md5, Toast.LENGTH_LONG).show();
             Log.i("MD5", pwd_md5);
+
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            startActivity(intent);
         }
     }
 
@@ -85,6 +115,14 @@ public class LoginActivity extends AppCompatActivity {
     public void signupButton_clicked(View v){
         // RegisterActivity 실행
         Intent intent = new Intent(LoginActivity.this, RegisterActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
+    // 아이디 비밀번호찾기 버튼 클릭 시
+    public void forgotButton_clicked(View v){
+        // ForgotActivity 실행
+        Intent intent = new Intent(LoginActivity.this, ForgotActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }

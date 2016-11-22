@@ -5,16 +5,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
+import com.imagelab.smartpowerman.Handler.BackPressCloseHandler;
 import com.imagelab.smartpowerman.Notification.QuickstartPreferences;
 
+/*
+* Main Activity
+*
+*/
 public class MainActivity extends AppCompatActivity {
 
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
@@ -23,11 +31,14 @@ public class MainActivity extends AppCompatActivity {
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private boolean isReceiverRegistered;
 
+    private BackPressCloseHandler backPressCloseHandler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // GCM 알림
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -41,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         };
+
+        // ActionBar 설정
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        // BackButton Press Close Handler
+        backPressCloseHandler = new BackPressCloseHandler(this);
+
+        setTitle("홈");      // 타이틀 설정
     }
 
     @Override
@@ -55,6 +74,34 @@ public class MainActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
         isReceiverRegistered = false;
         super.onPause();
+    }
+
+    // Back 버튼 함수
+    @Override
+    public void onBackPressed() {
+        //super.onBackPressed();
+        backPressCloseHandler.onBackPressed();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:
+                this.finish();
+                return true;
+            case R.id.action_settings:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
     }
 
     private void registerReceiver(){
@@ -84,4 +131,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
 }
