@@ -14,36 +14,42 @@
     <TextView
         android:text="등록"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/textView6"
         android:gravity="center" />
 
     <LinearLayout
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape">
+        android:layout_height="wrap_content">
 
         <TextView
-            android:layout_height="match_parent"
+            android:layout_height="20dp"
             android:layout_width="100dp"
             android:gravity="center"
             android:text="@string/user_id"
             android:background="@drawable/shape" />
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:inputType="textPersonName"
-            android:id="@+id/register_id"
-            android:hint="@string/user_id_hint"
-            android:backgroundTint="@android:color/transparent" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-            android:text="@string/user_idcheck"
-            android:layout_height="match_parent"
-            android:id="@+id/btn_idcheck"
-            android:layout_width="match_parent" />
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:id="@+id/register_id"
+                android:layout_weight="1" />
+
+            <Button
+                android:text="@string/user_idcheck"
+                android:layout_height="match_parent"
+                android:id="@+id/btn_idcheck"
+                android:layout_width="wrap_content"
+                android:elevation="0dp" />
+
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -52,51 +58,58 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape"
         android:layout_marginTop="-1dp">
 
 
-        <TextView
-            android:text="@string/user_pwd"
-            android:layout_height="match_parent"
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:background="@drawable/shape" />
-
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/register_pwd"
-            android:hint="@string/user_pwd_hint"
-            android:backgroundTint="@android:color/transparent" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/user_pwd"
+                android:layout_height="20dp"
+                android:layout_width="100dp"
+                android:background="@drawable/shape"
+                android:gravity="center" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/register_pwd" />
+        </LinearLayout>
 
 
     </LinearLayout>
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/shape"
         android:layout_marginTop="-1dp">
 
 
-        <TextView
-            android:text="@string/user_pwd2"
-            android:layout_height="match_parent"
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:background="@drawable/shape" />
-
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:ems="10"
-            android:id="@+id/register_pwd2"
-            android:hint="@string/user_pwd2_hint"
-            android:backgroundTint="@android:color/transparent" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/user_pwd2"
+                android:layout_height="20dp"
+                android:layout_width="150dp"
+                android:gravity="center"
+                android:background="@drawable/shape" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/register_pwd2" />
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -104,51 +117,28 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-1dp"
-        android:background="@drawable/shape">
-
-
-        <TextView
-            android:text="@string/user_name"
-            android:layout_height="match_parent"
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:background="@drawable/shape" />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/register_name"
-            android:hint="@string/user_name_hint"
-            android:inputType="phone"
-            android:backgroundTint="@android:color/transparent" />
-
-
-    </LinearLayout>
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/shape"
         android:layout_marginTop="-1dp">
 
 
-        <TextView
-            android:text="@string/user_phone"
-            android:layout_height="match_parent"
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:background="@drawable/shape" />
-
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/register_phone"
-            android:hint="@string/user_phone_hint"
-            android:inputType="phone"
-            android:backgroundTint="@android:color/transparent" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/user_name"
+                android:layout_height="20dp"
+                android:layout_width="100dp"
+                android:gravity="center"
+                android:background="@drawable/shape" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/register_name"
+                android:inputType="textPersonName" />
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -156,25 +146,57 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="-1dp"
-        android:background="@drawable/shape">
+        android:layout_marginTop="-1dp">
 
 
-        <TextView
-            android:text="@string/user_email"
-            android:layout_height="match_parent"
-            android:layout_width="100dp"
-            android:gravity="center"
-            android:background="@drawable/shape" />
-
-        <EditText
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:id="@+id/register_email"
-            android:hint="@string/user_email_hint"
-            android:inputType="textEmailAddress"
-            android:backgroundTint="@android:color/transparent" />
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/user_phone"
+                android:layout_height="20dp"
+                android:layout_width="100dp"
+                android:gravity="center"
+                android:background="@drawable/shape" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/register_phone"
+                android:inputType="phone" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-1dp">
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:text="@string/user_email"
+                android:layout_height="20dp"
+                android:layout_width="100dp"
+                android:gravity="center"
+                android:background="@drawable/shape" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:id="@+id/register_email"
+                android:inputType="textEmailAddress" />
+        </LinearLayout>
 
 
     </LinearLayout>
