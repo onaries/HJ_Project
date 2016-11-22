@@ -30,4 +30,7 @@
     <string name="gcm_defaultSenderId">99975034382</string>
     <string name="user_name">Name</string>
     <string name="user_name_hint">write your name</string>
+    <string name="user_forgot">Forgot</string>
+    <string name="user_id_save">Save ID</string>
+    <string name="user_id_auto_login">Auto Login</string>
 </resources>

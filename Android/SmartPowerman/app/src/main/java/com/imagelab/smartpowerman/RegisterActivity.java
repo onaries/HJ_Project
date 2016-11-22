@@ -27,9 +27,8 @@ import org.json.JSONObject;
 public class RegisterActivity extends AppCompatActivity {
 
     private Button btnCancel, btnSignUp, btnIDcheck;
-    private EditText register_id, register_pwd, register_pwd2, register_phone, register_email;
-    private RadioButton rb_location_agree, rb_location_disagree, rb_noti_agree, rb_noti_disagree;
-    private Spinner sp_type, sp_date;
+    private EditText register_id, register_pwd, register_pwd2, register_phone, register_email, register_name;
+
     private int idCheck = 0;
 
     @Override
@@ -46,12 +45,7 @@ public class RegisterActivity extends AppCompatActivity {
         register_pwd2 = (EditText) findViewById(R.id.register_pwd2);
         register_phone = (EditText) findViewById(R.id.register_phone);
         register_email = (EditText) findViewById(R.id.register_email);
-        rb_location_agree = (RadioButton) findViewById(R.id.rb_location_agree);
-        rb_location_disagree =(RadioButton) findViewById(R.id.rb_location_disagree);
-        rb_noti_agree = (RadioButton) findViewById(R.id.rb_noti_agree);
-        rb_noti_disagree = (RadioButton) findViewById(R.id.rb_noti_disagree);
-        sp_type = (Spinner) findViewById(R.id.sp_type);
-        sp_date = (Spinner) findViewById(R.id.sp_date);
+        register_name = (EditText) findViewById(R.id.register_name);
 
         // 버튼 클릭
         btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -73,36 +67,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        // 스피너 목록 추가
-        String[] str1 = getResources().getStringArray(R.array.sp_type);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, str1);
-        sp_type.setAdapter(adapter);
-        sp_type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-        String[] str2 = getResources().getStringArray(R.array.sp_date);
-        ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, str2);
-        sp_date.setAdapter(adapter1);
-        sp_date.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
         // ID 중복확인
         register_id.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -158,6 +123,9 @@ public class RegisterActivity extends AppCompatActivity {
         else if (!register_pwd.getText().toString().equals(register_pwd2.getText().toString()) ){
             Toast.makeText(getApplicationContext(), "비밀번호와 비밀번호 재입력 값이 다릅니다", Toast.LENGTH_LONG).show();
         }
+        else if (register_name.getText().toString().length() == 0){
+            Toast.makeText(getApplicationContext(), "이름을 입력하세요", Toast.LENGTH_LONG).show();
+        }
         // 전화번호가 입력되지 않았을 경우
         else if (register_phone.getText().toString().length() == 0){
             Toast.makeText(getApplicationContext(), "전화번호를 입력하세요", Toast.LENGTH_LONG).show();
@@ -165,14 +133,6 @@ public class RegisterActivity extends AppCompatActivity {
         // 이메일이 입력되지 않았을 경우
         else if (register_email.getText().toString().length() == 0){
             Toast.makeText(getApplicationContext(), "이메일을 입력하세요", Toast.LENGTH_LONG).show();
-        }
-        // 위치 정보 공유가 체크되지 않았을 경우
-        else if (!rb_location_agree.isChecked() && !rb_location_disagree.isChecked()){
-            Toast.makeText(getApplicationContext(), "위치 정보 공유 부분이 체크되지 않았습니다", Toast.LENGTH_LONG).show();
-        }
-        // 알림 설정이 체크되지 않았을 경우
-        else if (!rb_noti_agree.isChecked() && !rb_noti_disagree.isChecked()){
-            Toast.makeText(getApplicationContext(), "알림 설정 부분이 체크되지 않았습니다", Toast.LENGTH_LONG).show();
         }
         // 그 외
         else {

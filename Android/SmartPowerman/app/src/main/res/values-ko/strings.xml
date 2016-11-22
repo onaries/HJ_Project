@@ -28,4 +28,7 @@
     <string name="user_email_hint">이메일을 입력하세요</string>
     <string name="user_name">이름</string>
     <string name="user_name_hint">이름을 입력하세요</string>
+    <string name="user_forgot">아이디 비밀번호 찾기</string>
+    <string name="user_id_save">아이디저장</string>
+    <string name="user_id_auto_login">자동로그인</string>
 </resources>
