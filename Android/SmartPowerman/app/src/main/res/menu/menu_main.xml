@@ -5,5 +5,11 @@
     <item android:title="@string/str_settings"
         android:id="@+id/action_settings"
         android:icon="@android:drawable/ic_menu_manage"
-        android:showAsAction="ifRoom" />
+        android:showAsAction="always"
+        app:showAsAction="always" />
+    <item android:title="Item"
+        android:showAsAction="always"
+        android:icon="@drawable/common_full_open_on_phone"
+        android:id="@+id/action_noti"
+        app:showAsAction="always" />
 </menu>

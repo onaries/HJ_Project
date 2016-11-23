@@ -20,22 +20,48 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingRight="10dp">
 
-            <TextView
-                android:text="Power"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView2"
-                android:layout_weight="1"
-                android:gravity="center" />
+                android:layout_height="match_parent">
 
-            <ImageButton
+                <TextView
+                    android:text="검침일"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    app:srcCompat="@mipmap/ic_launcher"
+                    android:id="@+id/imageButton"
+                    android:layout_height="300dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton"
-                android:layout_marginRight="10dp" />
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:text="맞춤 전기세"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
+                    android:id="@+id/imageButton3" />
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -43,22 +69,69 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:paddingLeft="10dp">
 
-            <TextView
-                android:text="Price"
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/textView5"
-                android:layout_weight="1"
-                android:gravity="center" />
+                android:layout_height="match_parent">
 
-            <ImageButton
+                <TextView
+                    android:text="이번달 전기세"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:layout_weight="1"
+                    android:gravity="center" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    app:srcCompat="@mipmap/ic_launcher"
+                    android:id="@+id/imageButton2"
+                    android:layout_weight="1"
+                    android:layout_height="125dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:srcCompat="@mipmap/ic_launcher"
-                android:id="@+id/imageButton2"
-                android:layout_marginLeft="10dp" />
+                android:layout_height="match_parent"
+                android:layout_marginTop="33dp">
+
+                <TextView
+                    android:text="문의하기"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView11" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    app:srcCompat="@drawable/common_full_open_on_phone"
+                    android:id="@+id/imageButton4"
+                    android:layout_height="125dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="30dp">
+
+                <TextView
+                    android:text="FAQ"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView12" />
+
+                <ImageButton
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:srcCompat="@drawable/common_full_open_on_phone"
+                    android:id="@+id/imageButton5" />
+
+            </LinearLayout>
 
         </LinearLayout>
 

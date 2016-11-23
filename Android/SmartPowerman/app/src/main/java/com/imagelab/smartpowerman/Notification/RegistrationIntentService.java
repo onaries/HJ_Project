@@ -76,6 +76,9 @@ public class RegistrationIntentService extends IntentService {
      */
     private void sendRegistrationToServer(String token) {
         // Add custom implementation, as needed.
+
+        // 서버로 보내는 부분
+        Log.i("RegistrationID", token);
     }
 
     /**

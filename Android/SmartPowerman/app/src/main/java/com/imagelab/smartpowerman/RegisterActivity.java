@@ -1,8 +1,16 @@
 package com.imagelab.smartpowerman;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
@@ -18,7 +26,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.imagelab.smartpowerman.Network.Mysql;
+import com.imagelab.smartpowerman.Notification.QuickstartPreferences;
+import com.imagelab.smartpowerman.Notification.RegistrationIntentService;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,10 +38,27 @@ import org.json.JSONObject;
 
 public class RegisterActivity extends AppCompatActivity {
 
+    private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+    private static final String TAG = "RegisterActivity";
     private Button btnCancel, btnSignUp, btnIDcheck;
-    private EditText register_id, register_pwd, register_pwd2, register_phone, register_email, register_name;
+    private EditText register_pwd, register_pwd2, register_phone, register_email, register_name;
+    private BroadcastReceiver mRegistrationBroadcastReceiver;
+    private boolean isReceiverRegistered;
 
     private int idCheck = 0;
+
+    @Override
+    protected void onPause() {
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mRegistrationBroadcastReceiver);
+        isReceiverRegistered = false;
+        super.onPause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        registerReceiver();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +69,6 @@ public class RegisterActivity extends AppCompatActivity {
         btnCancel = (Button) findViewById(R.id.btnCancel);
         btnSignUp = (Button) findViewById(R.id.btnSignUp);
         btnIDcheck = (Button) findViewById(R.id.btn_idcheck);
-        register_id = (EditText) findViewById(R.id.register_id);
         register_pwd = (EditText) findViewById(R.id.register_pwd);
         register_pwd2 = (EditText) findViewById(R.id.register_pwd2);
         register_phone = (EditText) findViewById(R.id.register_phone);
@@ -70,14 +98,14 @@ public class RegisterActivity extends AppCompatActivity {
         // ActionBar 설정
         setTitle("등록");
 
-        // ID 중복확인
-        register_id.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+        // EMAIL 중복확인
+        register_email.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
                 return false;
             }
         });
-        TextWatcher textWatcher = new TextWatcher() {
+        TextWatcher emailTextWatcher = new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                 // 변경되기 전에 입력 되었던 텍스트에 대한 내용
@@ -96,11 +124,29 @@ public class RegisterActivity extends AppCompatActivity {
                 }
             }
         };
-        register_id.addTextChangedListener(textWatcher);
+        register_email.addTextChangedListener(emailTextWatcher);
 
+        // 전화번호 포맷
+        register_phone.addTextChangedListener(new PhoneNumberFormattingTextWatcher());
 
+        // GCM 알림
+        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                boolean sentToken = sharedPreferences.getBoolean(QuickstartPreferences.SENT_TOKEN_TO_SERVER, false);
+                if (sentToken) {
+                    Log.i(TAG, "전송");
+                }
+                else {
+                    Log.i(TAG, "에러");
+                }
+            }
+        };
 
-
+        if (checkPlayServices()) {
+            startService(new Intent(this, RegistrationIntentService.class));
+        }
     }
 
     public void btnCancel_clicked(View v){
@@ -108,11 +154,11 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     public void btnSignUp_clicked(View v){
-        // ID가 입력되지 않았을 경우
-        if(register_id.getText().toString().length() == 0){
-            Toast.makeText(getApplicationContext(), "아이디를 입력하세요", Toast.LENGTH_LONG).show();
+        // 이메일이 입력되지 않았을 경우
+        if(register_email.getText().toString().length() == 0){
+            Toast.makeText(getApplicationContext(), "이메일을 입력하세요", Toast.LENGTH_LONG).show();
         }
-        // ID 중복확인이 안된경우
+        // 이메일 중복확인이 안된경우
         else if (idCheck == 0){
             Toast.makeText(getApplicationContext(), "중복확인 버튼을 눌러주세요", Toast.LENGTH_LONG).show();
         }
@@ -131,10 +177,6 @@ public class RegisterActivity extends AppCompatActivity {
         else if (register_phone.getText().toString().length() == 0){
             Toast.makeText(getApplicationContext(), "전화번호를 입력하세요", Toast.LENGTH_LONG).show();
         }
-        // 이메일이 입력되지 않았을 경우
-        else if (register_email.getText().toString().length() == 0){
-            Toast.makeText(getApplicationContext(), "이메일을 입력하세요", Toast.LENGTH_LONG).show();
-        }
         // 그 외
         else {
 
@@ -143,15 +185,15 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void btnIDcheck_clicked(View v) {
         // ID가 입력되지 않았을 경우
-        if(register_id.getText().toString().length() == 0){
-            Toast.makeText(getApplicationContext(), "아이디를 입력하세요", Toast.LENGTH_LONG).show();
+        if(register_email.getText().toString().length() == 0){
+            Toast.makeText(getApplicationContext(), "이메일을 입력하세요", Toast.LENGTH_LONG).show();
         }
         // 그 외
         else {
             // 중복확인 하기
 
             new AsyncTask<Object, Object, Object>() {
-                String id = register_id.getText().toString();
+                String email = register_email.getText().toString();
                 int res = 0;
 
                 @Override
@@ -161,7 +203,7 @@ public class RegisterActivity extends AppCompatActivity {
 
                 @Override
                 protected Object doInBackground(Object... params) {
-                    Mysql task = new Mysql("http://168.131.153.24/sql/mysql_sel_user_id.php?id=" + id);
+                    Mysql task = new Mysql("http://168.131.153.24/sql/mysql_sel_user_email.php?email=" + email);
                     String result = task.phpTask();
 
                     try {
@@ -185,18 +227,48 @@ public class RegisterActivity extends AppCompatActivity {
 
                     // ID가 DB에 없다면
                     if (res == 1){
-                        Toast.makeText(getApplicationContext(), "사용가능한 아이디입니다", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "사용가능한 이메일입니다", Toast.LENGTH_LONG).show();
                         idCheck = 1;
                     }
                     else if (res == 2){
                         Toast.makeText(getApplicationContext(), "서버 에러입니다", Toast.LENGTH_LONG).show();
                     }
                     else {
-                        Toast.makeText(getApplicationContext(), "사용중인 아이디입니다", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "사용중인 이메일입니다", Toast.LENGTH_LONG).show();
                     }
                 }
             }.execute();
         }
     }
+
+    private void registerReceiver(){
+        if(!isReceiverRegistered) {
+            LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
+                    new IntentFilter(QuickstartPreferences.REGISTRATION_COMPLETE));
+            isReceiverRegistered = true;
+        }
+    }
+
+    /**
+     * Check the device to make sure it has the Google Play Services APK. If
+     * it doesn't, display a dialog that allows users to download the APK from
+     * the Google Play Store or enable it in the device's system settings.
+     */
+    private boolean checkPlayServices() {
+        GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
+        int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
+        if (resultCode != ConnectionResult.SUCCESS) {
+            if (apiAvailability.isUserResolvableError(resultCode)) {
+                apiAvailability.getErrorDialog(this, resultCode, PLAY_SERVICES_RESOLUTION_REQUEST)
+                        .show();
+            } else {
+                Log.i(TAG, "This device is not supported.");
+                finish();
+            }
+            return false;
+        }
+        return true;
+    }
+
 
 }

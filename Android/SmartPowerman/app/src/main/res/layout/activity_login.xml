@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             app:srcCompat="@drawable/splash"
             android:id="@+id/imageView"
-            android:layout_height="200dp" />
+            android:layout_height="150dp" />
 
         <LinearLayout
             android:orientation="horizontal"
@@ -57,7 +57,15 @@
                     android:ems="10"
                     android:id="@+id/idEditText"
                     android:layout_weight="1"
-                    android:hint="@string/user_id_hint" />
+                    android:backgroundTint="@android:color/transparent" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:srcCompat="@color/divider_gray"
+                    android:id="@+id/imageView3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>
@@ -89,10 +97,19 @@
                     android:ems="10"
                     android:id="@+id/pwdEditText"
                     android:layout_weight="1"
-                    android:hint="@string/user_pwd_hint" />
+                    android:backgroundTint="@android:color/transparent" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    app:srcCompat="@color/divider_gray"
+                    android:id="@+id/imageView3"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="1" />
             </LinearLayout>
 
         </LinearLayout>
+
         <LinearLayout
             android:orientation="horizontal"
             android:layout_width="match_parent"

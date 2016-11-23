@@ -87,16 +87,37 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
+
+        // 메뉴 버튼 추가하기 (강제로 ... 버튼 안나오게)
+        for (int i = 0; i < menu.size(); i++){
+            MenuItem item = menu.getItem(i);
+            item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
+
+            // 뒤로 가기
             case android.R.id.home:
                 this.finish();
                 return true;
+
+            // 설정 버튼
             case R.id.action_settings:
+                Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent);
+                return true;
+
+            // 알림 버튼
+            case R.id.action_noti:
+                Intent intent2 = new Intent(MainActivity.this, NotificationActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent2);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
