@@ -36,6 +36,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        Boolean loginCheck = intent.getBooleanExtra("LOGIN", false);
+
+        // 로그인 체크
+        if (!loginCheck) {
+            this.finish();      // 비정상접속한 경우 강제종료
+        }
         setContentView(R.layout.activity_main);
 
         // GCM 알림
