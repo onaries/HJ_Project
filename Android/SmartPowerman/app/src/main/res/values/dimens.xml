@@ -5,4 +5,8 @@
     <dimen name="main_button">165dp</dimen>
     <dimen name="activity_horizontal_margin_half">8dp</dimen>
     <dimen name="activity_vertical_margin_half">8dp</dimen>
+    <dimen name="actionbar_text_size">18dp</dimen>
+
+    <!-- xxdpi 96px -> 32dp -->
+    <dimen name="homeAsUpButton_size">32dp</dimen>
 </resources>

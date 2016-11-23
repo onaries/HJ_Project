@@ -15,6 +15,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -101,7 +102,9 @@ public class RegisterActivity extends AppCompatActivity {
         });
 
         // ActionBar 설정
-        setTitle("등록");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.actionbar_register);
 
         // EMAIL 중복확인
         register_email.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -153,6 +156,20 @@ public class RegisterActivity extends AppCompatActivity {
             startService(new Intent(this, RegistrationIntentService.class));
         }
 
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            // 뒤로 가기
+            case android.R.id.home:
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
 

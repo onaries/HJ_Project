@@ -136,7 +136,8 @@ public class LoginActivity extends AppCompatActivity {
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         // ActionBar 설정
-        setTitle("로그인");
+        getSupportActionBar().setDisplayShowCustomEnabled(true);
+        getSupportActionBar().setCustomView(R.layout.actionbar_login);
 
     }
 

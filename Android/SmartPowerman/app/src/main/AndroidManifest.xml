@@ -46,12 +46,11 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName="com.imagelab.smartpowerman.MainActivity">
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.imagelab.smartpowerman.MainActivity" />
         </activity>
-
 
         <!-- GCM Receiver -->
         <receiver
@@ -66,12 +65,12 @@
         </receiver>
 
         <!-- GCM Listener -->
-        <service android:name=".Notification.GcmListenerService"
+        <service
+            android:name=".Notification.GcmListenerService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
             </intent-filter>
-
         </service>
 
         <!-- GCM instanceID_Listener -->
@@ -106,7 +105,8 @@
         </service>
         -->
 
-
+        <activity android:name=".FAQActivity" />
+        <activity android:name=".GraphActivity"></activity>
     </application>
 
 </manifest>
