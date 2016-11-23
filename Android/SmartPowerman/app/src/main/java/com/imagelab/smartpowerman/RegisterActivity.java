@@ -46,6 +46,7 @@ public class RegisterActivity extends AppCompatActivity {
     private boolean isReceiverRegistered;
 
     private int idCheck = 0;
+    private String strGCM = "";
 
     @Override
     protected void onPause() {
@@ -58,6 +59,10 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         registerReceiver();
+
+        // 설정값 불러오기
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        strGCM = sharedPreferences.getString("GCM", null);
     }
 
     @Override
@@ -147,6 +152,8 @@ public class RegisterActivity extends AppCompatActivity {
         if (checkPlayServices()) {
             startService(new Intent(this, RegistrationIntentService.class));
         }
+
+
     }
 
     public void btnCancel_clicked(View v){
@@ -179,6 +186,50 @@ public class RegisterActivity extends AppCompatActivity {
         }
         // 그 외
         else {
+            // DB로 전송하기
+            new AsyncTask<Object, Object, Object>() {
+
+                String email = register_email.getText().toString();
+                String pwd = LoginActivity.getMD5(register_pwd.getText().toString());
+                String name = register_name.getText().toString();
+                String phone = register_phone.getText().toString();
+                String gcm = strGCM;
+                int res = 0;
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+
+                    Log.i("TEST", email + pwd + name + phone + gcm);
+                }
+
+                @Override
+                protected Object doInBackground(Object... params) {
+                    Mysql task = new Mysql("http://168.131.153.24/sql/mysql_ins_user_register.php?email=" + email + "&pwd="
+                            + pwd + "&name=" + name + "&phone=" + phone + "&gcm=" + gcm);
+                    String result = task.phpTask();
+
+                    if (result.equals("")){
+                        return true;
+                    }
+                    return false;
+                }
+
+                @Override
+                protected void onPostExecute(Object o) {
+                    super.onPostExecute(o);
+                    if((Boolean)o){
+                        Toast.makeText(getApplicationContext(), "등록되었습니다", Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(RegisterActivity.this, Register2Activity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                        startActivity(intent);
+                    }
+                    else {
+                        Toast.makeText(getApplicationContext(), "오류입니다", Toast.LENGTH_LONG).show();
+                    }
+                }
+            }.execute();
 
         }
     }

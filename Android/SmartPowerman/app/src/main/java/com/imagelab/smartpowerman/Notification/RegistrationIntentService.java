@@ -47,6 +47,8 @@ public class RegistrationIntentService extends IntentService {
             // TODO: Implement this method to send any registration to your app's servers.
             sendRegistrationToServer(token);
 
+            sharedPreferences.edit().putString("GCM", token).apply();
+
             // Subscribe to topic channels
             subscribeTopics(token);
 
@@ -78,7 +80,7 @@ public class RegistrationIntentService extends IntentService {
         // Add custom implementation, as needed.
 
         // 서버로 보내는 부분
-        Log.i("RegistrationID", token);
+
     }
 
     /**

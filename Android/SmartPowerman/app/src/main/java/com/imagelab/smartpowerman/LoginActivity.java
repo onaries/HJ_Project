@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     // 암호화 함수
-    public String getMD5(String str){
+    public static String getMD5(String str){
         String MD5 = "";
         try{
             MessageDigest md = MessageDigest.getInstance("MD5");
