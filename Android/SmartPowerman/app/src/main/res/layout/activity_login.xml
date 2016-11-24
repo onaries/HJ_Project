@@ -27,7 +27,7 @@
 
         <ImageView
             android:layout_width="match_parent"
-            app:srcCompat="@drawable/splash"
+            app:srcCompat="@drawable/shape"
             android:id="@+id/imageView"
             android:layout_height="150dp" />
 

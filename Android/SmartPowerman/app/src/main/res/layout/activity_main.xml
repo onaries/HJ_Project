@@ -15,104 +15,26 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <LinearLayout
-            android:orientation="horizontal"
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
+            <TextView
+                android:text="TextView"
+                android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1">
+                android:id="@+id/textView2"
+                tools:layout_editor_absoluteY="16dp"
+                tools:layout_editor_absoluteX="44dp"
+                android:gravity="center" />
 
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        app:srcCompat="@mipmap/ic_launcher"
-                        android:id="@+id/imageButton"
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/main_button"
-                        android:layout_height="340dp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginTop="10dp">
-
-                    <ImageButton
-                        app:srcCompat="@drawable/common_google_signin_btn_icon_dark"
-                        android:id="@+id/imageButton3"
-                        android:layout_weight="1"
-                        android:layout_width="@dimen/main_button"
-                        android:layout_height="@dimen/main_button"
-                        android:layout_gravity="center" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1">
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageButton
-                        app:srcCompat="@mipmap/ic_launcher"
-                        android:id="@+id/imageButton2"
-                        android:layout_weight="1"
-                        android:layout_height="@dimen/main_button"
-                        android:layout_gravity="center"
-                        android:layout_width="@dimen/main_button" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="10dp">
-
-                    <ImageButton
-                        android:layout_width="@dimen/main_button"
-                        app:srcCompat="@drawable/common_full_open_on_phone"
-                        android:id="@+id/btn_graph"
-                        android:layout_height="@dimen/main_button"
-                        android:layout_gravity="center" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginTop="10dp">
-
-                    <ImageButton
-                        app:srcCompat="@drawable/common_full_open_on_phone"
-                        android:id="@+id/btn_faq"
-                        android:layout_weight="1"
-                        android:layout_width="@dimen/main_button"
-                        android:layout_height="@dimen/main_button"
-                        android:layout_gravity="center" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </LinearLayout>
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="200dp"
+                tools:layout_editor_absoluteY="65dp"
+                tools:layout_editor_absoluteX="0dp"
+                android:layout_height="265dp"
+                android:id="@+id/pieChart"></com.github.mikephil.charting.charts.PieChart>
+        </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
 </LinearLayout>
