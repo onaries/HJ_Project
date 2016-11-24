@@ -34,4 +34,10 @@
     <string name="str_id_forgot">아이디찾기</string>
     <string name="str_pwd_forgot">비밀번호찾기</string>
     <string name="str_settings">설정</string>
+    <string name="str_home">홈</string>
+    <string name="str_login">로그인</string>
+    <string name="str_register">등록</string>
+    <string name="str_notification">내 알림</string>
+    <string name="str_faq">FAQ</string>
+    <string name="str_graph">그래프</string>
 </resources>

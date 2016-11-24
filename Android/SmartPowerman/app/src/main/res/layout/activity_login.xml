@@ -53,11 +53,11 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
                     android:ems="10"
                     android:id="@+id/idEditText"
                     android:layout_weight="1"
-                    android:backgroundTint="@android:color/transparent" />
+                    android:backgroundTint="@android:color/transparent"
+                    android:inputType="textEmailAddress" />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -120,7 +120,7 @@
                 android:text="@string/user_id_save"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/checkBox2"
+                android:id="@+id/chb_saveid"
                 android:layout_weight="1"
                 android:layout_marginLeft="30dp" />
 
@@ -128,7 +128,7 @@
                 android:text="@string/user_id_auto_login"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/checkBox"
+                android:id="@+id/chb_autologin"
                 android:layout_weight="1"
                 android:layout_marginRight="30dp" />
         </LinearLayout>

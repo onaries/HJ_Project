@@ -13,6 +13,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageButton;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GoogleApiAvailability;
@@ -33,9 +35,19 @@ public class MainActivity extends AppCompatActivity {
 
     private BackPressCloseHandler backPressCloseHandler;
 
+    private ImageButton btn_faq, btn_graph;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Intent intent = getIntent();
+        Boolean loginCheck = intent.getBooleanExtra("LOGIN", false);
+
+        // 로그인 체크
+        if (!loginCheck) {
+            this.finish();      // 비정상접속한 경우 강제종료
+        }
         setContentView(R.layout.activity_main);
 
         // GCM 알림
@@ -54,12 +66,30 @@ public class MainActivity extends AppCompatActivity {
         };
 
         // ActionBar 설정
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);          // 뒤로 가기 버튼 활성화
+        getSupportActionBar().setDisplayShowCustomEnabled(true);        // 액션바 커스텀 뷰 활성화
+        getSupportActionBar().setCustomView(R.layout.actionbar_main);   // 액션바 커스텀 레이아웃 지정
 
         // BackButton Press Close Handler
         backPressCloseHandler = new BackPressCloseHandler(this);
 
-        setTitle("홈");      // 타이틀 설정
+        // Resource 할당
+        btn_faq = (ImageButton) findViewById(R.id.btn_faq);
+        btn_graph = (ImageButton) findViewById(R.id.btn_graph);
+
+        // 버튼 클릭
+        btn_faq.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_faq_clicked(v);
+            }
+        });
+        btn_graph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_graph_clicked(v);
+            }
+        });
     }
 
     @Override
@@ -106,6 +136,13 @@ public class MainActivity extends AppCompatActivity {
                 this.finish();
                 return true;
 
+            // 알림 버튼
+            case R.id.action_noti:
+                Intent intent2 = new Intent(MainActivity.this, NotificationActivity.class);
+                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                startActivity(intent2);
+                return true;
+
             // 설정 버튼
             case R.id.action_settings:
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
@@ -113,12 +150,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 return true;
 
-            // 알림 버튼
-            case R.id.action_noti:
-                Intent intent2 = new Intent(MainActivity.this, NotificationActivity.class);
-                intent2.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
-                startActivity(intent2);
-                return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -153,5 +184,17 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    // FAQ 버튼 클릭 함수
+    public void btn_faq_clicked(View v){
+        Intent intent = new Intent(MainActivity.this, FAQActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
 
+    // 그래프 버튼 클릭 함수
+    public void btn_graph_clicked(View v){
+        Intent intent = new Intent(MainActivity.this, GraphActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
 }

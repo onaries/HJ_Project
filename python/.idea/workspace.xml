@@ -2,8 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fb55ee9b-e2f0-40ff-a997-c25e2287ab59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/py_server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/build.gradle" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/FAQActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/FAQActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/ForgotActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/ForgotActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/GraphActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/GraphActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/MainActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/MainActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/NotificationActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/NotificationActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/RegisterActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/RegisterActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/SettingsActivity.java" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/java/com/imagelab/smartpowerman/SettingsActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/res/layout/activity_faq.xml" afterPath="$PROJECT_DIR$/../Android/SmartPowerman/app/src/main/res/layout/activity_faq.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="python.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/py_server.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="496">
-              <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+              <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
               <folding>
                 <element signature="e#80#100#0" expanded="true" />
               </folding>
@@ -62,21 +71,12 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-855" />
-    <option name="y" value="-1088" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="173" />
+    <option name="y" value="-908" />
+    <option name="width" value="1616" />
+    <option name="height" value="876" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <OptionsSetting value="true" id="Add" />
-    <OptionsSetting value="true" id="Remove" />
-    <OptionsSetting value="true" id="Checkout" />
-    <OptionsSetting value="true" id="Update" />
-    <OptionsSetting value="true" id="Status" />
-    <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
-    <ConfirmationsSetting value="0" id="Remove" />
-  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -92,14 +92,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="python" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="python" />
@@ -113,13 +108,13 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.settingsdialog.IDE.editor.colors.Font" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
@@ -135,7 +130,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-855" y="-1088" width="1936" height="1056" extended-state="6" />
+    <frame x="173" y="-908" width="1616" height="876" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18125" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -158,6 +153,9 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -177,7 +175,7 @@
     <entry file="file://$PROJECT_DIR$/py_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#80#100#0" expanded="true" />
           </folding>
@@ -187,7 +185,7 @@
     <entry file="file://$PROJECT_DIR$/py_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#80#100#0" expanded="true" />
           </folding>
@@ -197,7 +195,27 @@
     <entry file="file://$PROJECT_DIR$/py_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#80#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#80#100#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/py_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#80#100#0" expanded="true" />
           </folding>
@@ -207,7 +225,7 @@
     <entry file="file://$PROJECT_DIR$/py_server.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="496">
-          <caret line="31" column="33" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
+          <caret line="31" column="33" lean-forward="false" selection-start-line="31" selection-start-column="33" selection-end-line="31" selection-end-column="33" />
           <folding>
             <element signature="e#80#100#0" expanded="true" />
           </folding>

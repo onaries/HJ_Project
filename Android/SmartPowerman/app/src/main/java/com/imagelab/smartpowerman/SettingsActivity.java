@@ -13,11 +13,10 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
@@ -121,6 +120,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setupActionBar();
+
     }
 
     /**
@@ -130,7 +130,11 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             // Show the Up button in the action bar.
-            actionBar.setDisplayHomeAsUpEnabled(true);
+            // ActionBar 설정
+            actionBar.setDisplayHomeAsUpEnabled(true);              // 뒤로 가기 버튼 활성화
+            actionBar.setDisplayShowCustomEnabled(true);            // 액션바 커스텀 뷰 활성화
+            actionBar.setCustomView(R.layout.actionbar_settings);   // 액션바 커스텀 레이아웃 지정
+
         }
     }
 
@@ -139,9 +143,7 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         int id = item.getItemId();
         switch(id){
             case android.R.id.home:
-                Intent intent = new Intent(this, MainActivity.class);
-                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
