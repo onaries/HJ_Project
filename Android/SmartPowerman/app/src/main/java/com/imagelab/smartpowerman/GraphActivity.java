@@ -39,9 +39,9 @@ public class GraphActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         setContentView(R.layout.activity_graph);
 
         // ActionBar 설정
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.actionbar_graph);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);              // 뒤로 가기 버튼 활성화
+        getSupportActionBar().setDisplayShowCustomEnabled(true);            // 액션바 커스텀 뷰 활성화
+        getSupportActionBar().setCustomView(R.layout.actionbar_graph);      // 액션바 커스텀 레이아웃 지정
 
         // Example
         tvX = (TextView) findViewById(R.id.tvXMax);

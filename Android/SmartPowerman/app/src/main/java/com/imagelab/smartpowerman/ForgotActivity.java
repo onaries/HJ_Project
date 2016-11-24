@@ -1,8 +1,7 @@
 package com.imagelab.smartpowerman;
 
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -46,9 +45,9 @@ public class ForgotActivity extends AppCompatActivity {
         });
 
         // ActionBar 설정
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowCustomEnabled(true);
-        getSupportActionBar().setCustomView(R.layout.actionbar_forgot);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);              // 뒤로 가기 버튼 활성화
+        getSupportActionBar().setDisplayShowCustomEnabled(true);            // 액션바 커스텀 뷰 활성화
+        getSupportActionBar().setCustomView(R.layout.actionbar_forgot);     // 액션바 커스텀 레이아웃 지정
     }
 
 

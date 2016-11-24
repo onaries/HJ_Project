@@ -13,11 +13,10 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.support.v4.app.NavUtils;
-import android.support.v7.app.ActionBar;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
+import android.support.v7.app.ActionBar;
 import android.text.TextUtils;
 import android.view.MenuItem;
 
@@ -132,9 +131,9 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
         if (actionBar != null) {
             // Show the Up button in the action bar.
             // ActionBar 설정
-            actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setDisplayShowCustomEnabled(true);
-            actionBar.setCustomView(R.layout.actionbar_settings);
+            actionBar.setDisplayHomeAsUpEnabled(true);              // 뒤로 가기 버튼 활성화
+            actionBar.setDisplayShowCustomEnabled(true);            // 액션바 커스텀 뷰 활성화
+            actionBar.setCustomView(R.layout.actionbar_settings);   // 액션바 커스텀 레이아웃 지정
 
         }
     }
