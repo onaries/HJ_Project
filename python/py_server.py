@@ -10,7 +10,7 @@ from time import ctime
 
 # 초기 변수 지정
 HOST = ''
-PORT = 12121
+PORT = 32769
 BUFSIZE = 128
 ADDR = (HOST, PORT)
 
@@ -27,6 +27,11 @@ print("서버를 시작합니다. %s 포트" % str(PORT))
 
 while 1:
     clientSocket, addr = serverSocket.accept()
-    print("[INFO] [%s] %s 클라이언트가 연결되었습니다." % ctime(), addr)
-    while 1:
-        data = input("Q입력시 종료 :")
+    print("[INFO] [%s] %s 클라이언트가 연결되었습니다." % (ctime(), addr))
+
+    data = clientSocket.recv(512).decode()
+    print("RECEIVED : ", data)
+
+serverSocket.close()
+print("서버를 종료합니다")
+

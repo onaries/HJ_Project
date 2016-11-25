@@ -6,10 +6,9 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Build;
+import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -21,7 +20,6 @@ import com.imagelab.smartpowerman.Network.Mysql;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.jar.Manifest;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -191,6 +189,8 @@ public class LoginActivity extends AppCompatActivity {
                     return false;   // 로그인 실패
                 }
 
+
+
                 @Override
                 protected void onPostExecute(Boolean o) {
                     super.onPostExecute(o);
@@ -208,12 +208,6 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 }
             }.execute();
-
-
-
-
-
-
         }
     }
 

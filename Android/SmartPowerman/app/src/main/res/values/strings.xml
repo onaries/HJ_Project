@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Smart Power Management System</string>
+    <string name="app_name">Energy Manager</string>
     <string name="user_id">ID</string>
     <string name="user_pwd">Password</string>
     <string name="user_signin">Sign in</string>
