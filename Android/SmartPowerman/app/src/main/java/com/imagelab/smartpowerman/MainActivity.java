@@ -89,9 +89,9 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         backPressCloseHandler = new BackPressCloseHandler(this);
 
         // Resource 할당
-        pieChart = (PieChart) findViewById(R.id.pieChart);
+        //pieChart = (PieChart) findViewById(R.id.pieChart);
 
-        createChart();
+        //createChart();
 
 //        btn_faq = (ImageButton) findViewById(R.id.btn_faq);
 //        btn_graph = (ImageButton) findViewById(R.id.btn_graph);

@@ -4,15 +4,15 @@ class Server
 {
     ServerSocket server = null;
     Socket client = null;
-    static final int port = 3000; //상수값으로 port 번호 설정
+    static final int port = 32769; //상수값으로 port 번호 설정
 
     //입력용 Stream
     InputStream is;
-    ObjectInputStream ois;
+    DataInputStream ois;
 
     //출력용 Stream
     OutputStream os;
-    ObjectOutputStream oos;
+    DataOutputStream oos;
 
     String receiveData;
 
@@ -32,21 +32,21 @@ class Server
 
             //*** Clinet로 부터 수신받은 message를 읽기 위한 입력 Stream ***//
             is = client.getInputStream();
-            ois = new ObjectInputStream(is);
+            ois = new DataInputStream(is);
 
             //Clinet로 부터 수신받은 message를 다시 보내기 위한 출력 Stream ***//
             os = client.getOutputStream();
-            oos = new ObjectOutputStream(os);
+            oos = new DataOutputStream(os);
 
             //*** Clinet가 보내온 message를 Server가 읽은 후 다시 Clinet에게 전송함 ***//
-            while ((receiveData = (String)ois.readObject()) != null) //ObjectInputStream.readObject() 호출
+            while ((receiveData = ois.readUTF()) != null) //ObjectInputStream.readObject() 호출
             {
                 System.out.println("received data = " + receiveData);
                 if (receiveData.equals("quit")) //"quit" 입력시 종료
                 {
                     break;
                 }
-                oos.writeObject("→ "+receiveData); //ObjectOutputStream.writeObject() 호출
+                oos.writeUTF("→ "+receiveData); //ObjectOutputStream.writeObject() 호출
                 oos.flush(); //버퍼의 데이터를 효율적으로 전송하기 위한 method
             }
             is.close();

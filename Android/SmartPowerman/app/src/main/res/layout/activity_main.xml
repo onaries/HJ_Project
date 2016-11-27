@@ -23,8 +23,8 @@
                 android:orientation="vertical"
                 android:layout_width="352dp"
                 android:layout_height="0dp"
-                tools:layout_editor_absoluteY="8dp"
-                tools:layout_editor_absoluteX="8dp"></LinearLayout>
+                tools:layout_editor_absoluteY="97dp"
+                tools:layout_editor_absoluteX="16dp"></LinearLayout>
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
 
