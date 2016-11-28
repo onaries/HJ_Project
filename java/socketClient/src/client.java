@@ -4,8 +4,8 @@ import java.net.*;
 class Client
 {
     Socket client = null;
-    String ipAddress; //접속을 요청할 Server의 IP 주소를 저장할 변수
-    static final int port = 3000; //접속을 요청할 Server의 port 번호와 동일하게 지정
+    String ipAddress = "168.131.153.24"; //접속을 요청할 Server의 IP 주소를 저장할 변수
+    static final int port = 32769; //접속을 요청할 Server의 port 번호와 동일하게 지정
 
     BufferedReader read;
 
@@ -69,6 +69,7 @@ class Client
         }
         catch (Exception e)
         {
+            e.printStackTrace();
             System.out.println("통신 Error !!");
             System.exit(0);
         }
