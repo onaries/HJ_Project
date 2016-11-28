@@ -1,6 +1,7 @@
 package com.imagelab.smartpowerman;
 
 import android.annotation.TargetApi;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -171,8 +172,16 @@ public class LoginActivity extends AppCompatActivity {
 
                 String pwd_md5 = getMD5(pwd);   // 암호화된 PWD 값
 
+                ProgressDialog dialog;
+
                 @Override
                 protected void onPreExecute() {
+                    dialog = new ProgressDialog(LoginActivity.this);
+                    dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+                    dialog.setMessage("로그인 중입니다");
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.show();
+
                     super.onPreExecute();
                 }
 
@@ -193,8 +202,8 @@ public class LoginActivity extends AppCompatActivity {
 
                 @Override
                 protected void onPostExecute(Boolean o) {
-                    super.onPostExecute(o);
-
+//                    super.onPostExecute(o);
+                    dialog.dismiss();
                     // 아이디와 비밀번호가 데이터베이스에 있는 데이터와 일치할 경우 메인 액티비티로 이동
                     if (o) {
                         Toast.makeText(getApplicationContext(), "로그인 되었습니다", Toast.LENGTH_LONG).show();

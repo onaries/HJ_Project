@@ -43,14 +43,6 @@
         <activity android:name=".Register2Activity" />
         <activity android:name=".ForgotActivity" />
         <activity android:name=".NotificationActivity" />
-        <activity
-            android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.imagelab.smartpowerman.MainActivity" />
-        </activity>
 
         <!-- GCM Receiver -->
         <receiver
@@ -106,7 +98,8 @@
         -->
 
         <activity android:name=".FAQActivity" />
-        <activity android:name=".GraphActivity"></activity>
+        <activity android:name=".GraphActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>

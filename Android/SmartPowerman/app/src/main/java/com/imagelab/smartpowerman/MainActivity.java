@@ -109,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 //                btn_graph_clicked(v);
 //            }
 //        });
+
     }
 
     @Override
@@ -143,6 +144,14 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
             item.setShowAsActionFlags(MenuItem.SHOW_AS_ACTION_ALWAYS);
         }
 
+
+        // 알림이 존재한다면
+        int noti = 1;
+        if (noti == 1){
+            MenuItem settingItem = menu.getItem(1);
+            settingItem.setIcon(R.drawable.ic_notification_new);
+        }
+
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -153,6 +162,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
             // 뒤로 가기
             case android.R.id.home:
                 this.finish();
+                return true;
+
+            // 새로고침 버튼
+            case R.id.action_refresh:
                 return true;
 
             // 알림 버튼
@@ -330,5 +343,6 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     public void onNothingSelected() {
         Log.i("PieChart", "nothing selected");
     }
+
 }
 

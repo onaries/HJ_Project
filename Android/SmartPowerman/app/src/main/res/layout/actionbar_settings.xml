@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center">
+    android:gravity="center"
+    android:layout_gravity="center">
 
-    <TextView
-        android:text="@string/str_settings"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_settings"
+        android:id="@+id/imageView7"
         android:layout_gravity="center"
-        android:id="@+id/txt_actionbar"
-        android:gravity="center"
-        android:textSize="@dimen/actionbar_text_size"
         android:layout_marginRight="@dimen/homeAsUpButton_size" />
 </LinearLayout>
