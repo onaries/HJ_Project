@@ -43,6 +43,10 @@
         <activity android:name=".Register2Activity" />
         <activity android:name=".ForgotActivity" />
         <activity android:name=".NotificationActivity" />
+        <activity android:name=".FAQActivity" />
+        <activity android:name=".GraphActivity" />
+        <activity android:name=".SettingsActivity" />
+        <activity android:name=".PreferenceActivity"></activity>
 
         <!-- GCM Receiver -->
         <receiver
@@ -97,9 +101,7 @@
         </service>
         -->
 
-        <activity android:name=".FAQActivity" />
-        <activity android:name=".GraphActivity" />
-        <activity android:name=".SettingsActivity"></activity>
+
     </application>
 
 </manifest>

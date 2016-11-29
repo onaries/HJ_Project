@@ -1,7 +1,9 @@
 package com.imagelab.smartpowerman;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -34,7 +36,38 @@ public class SettingsActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), position, Toast.LENGTH_SHORT).show();
+
+                String strPos = String.valueOf(position);
+                Toast.makeText(SettingsActivity.this, strPos, Toast.LENGTH_SHORT).show();
+
+                Intent intent;
+                intent = new Intent(SettingsActivity.this, PreferenceActivity.class);
+                intent.putExtra("num", position);
+
+                switch(position) {
+                    case 0:     // 개인정보변경 선택
+                        startActivity(intent);
+                        break;
+                    case 1:     // 사용요금계획 선택
+                        startActivity(intent);
+                        break;
+                    case 2:     // 요금 계산 선택
+                        startActivity(intent);
+                        break;
+                    case 3:     // 알림 설정 선택
+                        startActivity(intent);
+                        break;
+                    case 4:     // 탈퇴하기 선택
+                        Log.i("pos", "5");
+                        break;
+                    case 5:     // 로그아웃 선택
+                        Log.i("pos", "6");
+                        break;
+                    default:
+                        Log.i("pos", "default");
+                        break;
+                }
+
             }
         });
     }

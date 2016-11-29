@@ -41,7 +41,7 @@
     <string name="str_settings">Settings</string>
     <string name="title_activity_settings">Settings</string>
 
-    <!-- Strings related to Settings -->
+    <!-- Strings related to SettingsFragment -->
 
     <!-- Example General settings -->
     <string name="pref_header_privacy">Privacy</string>
@@ -120,4 +120,7 @@
     <string name="str_notification">My Notification</string>
     <string name="str_faq">FAQ</string>
     <string name="str_graph">Graph</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
