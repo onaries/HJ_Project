@@ -9,4 +9,5 @@
 
     <!-- xxdpi 96px -> 32dp -->
     <dimen name="homeAsUpButton_size">32dp</dimen>
+    <dimen name="list_text_size">16dp</dimen>
 </resources>

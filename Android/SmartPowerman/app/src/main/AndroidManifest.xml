@@ -46,7 +46,7 @@
         <activity android:name=".FAQActivity" />
         <activity android:name=".GraphActivity" />
         <activity android:name=".SettingsActivity" />
-        <activity android:name=".PreferenceActivity"></activity>
+        <activity android:name=".PreferenceActivity" />
 
         <!-- GCM Receiver -->
         <receiver
@@ -101,7 +101,9 @@
         </service>
         -->
 
-
+        <activity android:name=".UsageActivity" />
+        <activity android:name=".PastUsageActivity" />
+        <activity android:name=".QuestionActivity"></activity>
     </application>
 
 </manifest>

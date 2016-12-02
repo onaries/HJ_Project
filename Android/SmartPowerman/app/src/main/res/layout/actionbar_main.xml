@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:gravity="center"
     android:layout_gravity="center"
-    android:layout_marginLeft="64dp">
+    android:layout_marginLeft="80dp">
 
     <ImageView
         android:layout_width="wrap_content"

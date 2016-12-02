@@ -11,21 +11,213 @@
     android:paddingTop="@dimen/activity_vertical_margin_half"
     tools:context="com.imagelab.smartpowerman.MainActivity">
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <android.support.constraint.ConstraintLayout
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="8dp"
+            tools:layout_editor_absoluteX="8dp"
+            android:layout_weight="1">
 
             <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="352dp"
-                android:layout_height="0dp"
-                tools:layout_editor_absoluteY="97dp"
-                tools:layout_editor_absoluteX="16dp"></LinearLayout>
-        </android.support.constraint.ConstraintLayout>
-    </ScrollView>
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:text="현재 사용량"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView15"
+                    android:layout_weight="1"
+                    android:textSize="18dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="8dp"
+                tools:layout_editor_absoluteX="8dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:text="@string/str_read_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView5"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:text="3일"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView2"
+                    android:layout_marginLeft="16dp"
+                    android:textSize="@dimen/list_text_size" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="30dp"
+                tools:layout_editor_absoluteX="8dp"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:text="2016 년 11 월"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView6"
+                    android:textSize="@dimen/list_text_size" />
+
+                <ProgressBar
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/progressBar2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="16dp"
+                    android:progress="33" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:text="전력"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView11"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:text="100 / 271"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView13"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:text="kWh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView12"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView14" />
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp">
+
+                <TextView
+                    android:text="요금"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView11"
+                    android:layout_weight="0.8"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:text="6600 / 30000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView13"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:text="원"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView12"
+                    android:layout_weight="0.5"
+                    android:textSize="@dimen/list_text_size" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView14" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="154dp"
+            tools:layout_editor_absoluteX="8dp"
+            android:layout_marginTop="32dp"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                app:srcCompat="@drawable/btn_usage"
+                android:id="@+id/btn_main_usage"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="전력 사용량"
+                android:backgroundTint="@color/button" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:text="과거 사용량"
+                android:backgroundTint="@color/button"
+                android:id="@+id/btn_main_pastusage" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteY="233dp"
+            tools:layout_editor_absoluteX="0dp"
+            android:layout_weight="1">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:text="Tip"
+                android:backgroundTint="@color/button" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:layout_gravity="center"
+                android:layout_marginLeft="32dp"
+                android:text="문의하기"
+                android:backgroundTint="@color/button" />
+        </LinearLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

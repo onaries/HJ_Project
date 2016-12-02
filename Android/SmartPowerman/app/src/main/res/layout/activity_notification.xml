@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_notification"
     android:layout_width="match_parent"
@@ -8,6 +9,55 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.imagelab.smartpowerman.NotificationActivity">
+    tools:context="com.imagelab.smartpowerman.NotificationActivity"
+    android:orientation="vertical">
 
-</RelativeLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/noti_default"
+            android:id="@+id/imageView8"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:text="누진제 알림\n누진제 3단계에 진입하였습니다. 현 시점부터 기본요금이 1600원, 1kWh당 187.9원의 요금이 적용됩니다."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:layout_weight="1"
+            android:background="@drawable/notification_bg"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/noti_default"
+            android:id="@+id/imageView8"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:text="전력 사용량 알림\n냉장고 현재 사용 전력이 2010년과 비교하여 20%가량 높습니다. 냉장고 평균 수명은 약 10~12년입니다. 수명보다 오래 사용할 경우 전기 부품들이 비효율적으로 작동하여 전력이 더 많이 소모될 수 있습니다."
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:layout_weight="1"
+            android:background="@drawable/notification_bg"
+            android:layout_gravity="center_vertical" />
+    </LinearLayout>
+
+</LinearLayout>

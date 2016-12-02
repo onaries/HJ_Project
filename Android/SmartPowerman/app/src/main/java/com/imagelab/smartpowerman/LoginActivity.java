@@ -33,6 +33,8 @@ public class LoginActivity extends AppCompatActivity {
     private BackPressCloseHandler backPressCloseHandler;
     private SharedPreferences sharedPreferences;
 
+    private String user_email, user_name, user_phone;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -210,6 +212,7 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
                         intent.putExtra("LOGIN", true);
+                        intent.putExtra("USER_EMAIL", email);
                         startActivity(intent);
                     }
                     else {

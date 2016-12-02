@@ -41,7 +41,7 @@ public class GraphActivity extends AppCompatActivity implements SeekBar.OnSeekBa
         // ActionBar 설정
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);              // 뒤로 가기 버튼 활성화
         getSupportActionBar().setDisplayShowCustomEnabled(true);            // 액션바 커스텀 뷰 활성화
-        getSupportActionBar().setCustomView(R.layout.actionbar_graph);      // 액션바 커스텀 레이아웃 지정
+        getSupportActionBar().setCustomView(R.layout.actionbar_pastusage);      // 액션바 커스텀 레이아웃 지정
 
         // Example
         tvX = (TextView) findViewById(R.id.tvXMax);
@@ -100,26 +100,26 @@ public class GraphActivity extends AppCompatActivity implements SeekBar.OnSeekBa
 
 //        Typeface tf = Typeface.createFromAsset(getAssets(), "OpenSans-Regular.ttf");
 
-        LimitLine ll1 = new LimitLine(150f, "Upper Limit");
-        ll1.setLineWidth(4f);
-        ll1.enableDashedLine(10f, 10f, 0f);
-        ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
-        ll1.setTextSize(10f);
+//        LimitLine ll1 = new LimitLine(150f, "Upper Limit");
+//        ll1.setLineWidth(4f);
+//        ll1.enableDashedLine(10f, 10f, 0f);
+//        ll1.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_TOP);
+//        ll1.setTextSize(10f);
 //        ll1.setTypeface(tf);
 
-        LimitLine ll2 = new LimitLine(-30f, "Lower Limit");
-        ll2.setLineWidth(4f);
-        ll2.enableDashedLine(10f, 10f, 0f);
-        ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
-        ll2.setTextSize(10f);
+//        LimitLine ll2 = new LimitLine(-30f, "Lower Limit");
+//        ll2.setLineWidth(4f);
+//        ll2.enableDashedLine(10f, 10f, 0f);
+//        ll2.setLabelPosition(LimitLine.LimitLabelPosition.RIGHT_BOTTOM);
+//        ll2.setTextSize(10f);
 //        ll2.setTypeface(tf);
 
         YAxis leftAxis = mChart.getAxisLeft();
         leftAxis.removeAllLimitLines(); // reset all limit lines to avoid overlapping lines
-        leftAxis.addLimitLine(ll1);
-        leftAxis.addLimitLine(ll2);
+//        leftAxis.addLimitLine(ll1);
+//        leftAxis.addLimitLine(ll2);
         leftAxis.setAxisMaximum(200f);
-        leftAxis.setAxisMinimum(-50f);
+        leftAxis.setAxisMinimum(0f);
         //leftAxis.setYOffset(20f);
         leftAxis.enableGridDashedLine(10f, 10f, 0f);
         leftAxis.setDrawZeroLine(false);
@@ -173,9 +173,25 @@ public class GraphActivity extends AppCompatActivity implements SeekBar.OnSeekBa
 
         ArrayList<Entry> values = new ArrayList<Entry>();
 
-        for (int i = 0; i < count; i++) {
+//        for (int i = 0; i < count; i++) {
+//
+//            float val = (float) (Math.random() * range) + 3;
+//            values.add(new Entry(i, val));
+//        }
 
-            float val = (float) (Math.random() * range) + 3;
+
+        float val = 100;
+        for (int i = 0; i < 40; i++) {
+
+            if (i%3 == 0)
+                val++;
+            values.add(new Entry(i, val));
+        }
+
+        val = 150;
+        for (int i = 40; i < 50; i++) {
+
+            val++;
             values.add(new Entry(i, val));
         }
 
@@ -204,6 +220,7 @@ public class GraphActivity extends AppCompatActivity implements SeekBar.OnSeekBa
             set1.setFormLineWidth(1f);
             set1.setFormLineDashEffect(new DashPathEffect(new float[]{10f, 5f}, 0f));
             set1.setFormSize(15.f);
+            set1.setDrawValues(false);
 
             if (Utils.getSDKInt() >= 18) {
                 // fill drawable only supported on api level 18 and above

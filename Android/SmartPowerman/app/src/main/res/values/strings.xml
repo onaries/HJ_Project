@@ -123,4 +123,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="user_cur_pwd">Current Password</string>
+    <string name="str_read_date">검침일</string>
+    <string name="str_usage">사용량 조회</string>
+    <string name="str_pastusage">과거 사용량</string>
 </resources>

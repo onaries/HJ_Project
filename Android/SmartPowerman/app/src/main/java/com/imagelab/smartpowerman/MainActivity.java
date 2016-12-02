@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.PieChart;
@@ -49,8 +49,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 
     private BackPressCloseHandler backPressCloseHandler;
 
-    private ImageButton btn_faq, btn_graph;
+    private Button btn_main_usage, btn_main_pastusage;
     private PieChart pieChart;
+
+    private String user_email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +66,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
             this.finish();      // 비정상접속한 경우 강제종료
         }
         setContentView(R.layout.activity_main);
+
+        // Resource 할당
+        btn_main_usage = (Button) findViewById(R.id.btn_main_usage);
+        btn_main_pastusage = (Button) findViewById(R.id.btn_main_pastusage);
 
         // GCM 알림
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
@@ -88,6 +94,10 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
         // BackButton Press Close Handler
         backPressCloseHandler = new BackPressCloseHandler(this);
 
+        // 이전 액티비티에서 값 받기 (이메일 값)
+        user_email = getIntent().getStringExtra("USER_EMAIL");
+
+
         // Resource 할당
         //pieChart = (PieChart) findViewById(R.id.pieChart);
 
@@ -97,12 +107,18 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
 //        btn_graph = (ImageButton) findViewById(R.id.btn_graph);
 
         // 버튼 클릭
-//        btn_faq.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                btn_faq_clicked(v);
-//            }
-//        });
+        btn_main_usage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_usage_clicked(v);
+            }
+        });
+        btn_main_pastusage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_pastusage_clicked(v);
+            }
+        });
 //        btn_graph.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
@@ -179,6 +195,7 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
             case R.id.action_settings:
                 Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.putExtra("USER_EMAIL", user_email);
                 startActivity(intent);
                 return true;
 
@@ -217,8 +234,15 @@ public class MainActivity extends AppCompatActivity implements OnChartValueSelec
     }
 
     // FAQ 버튼 클릭 함수
-    public void btn_faq_clicked(View v){
-        Intent intent = new Intent(MainActivity.this, FAQActivity.class);
+    public void btn_usage_clicked(View v){
+        Intent intent = new Intent(MainActivity.this, UsageActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        startActivity(intent);
+    }
+
+    // FAQ 버튼 클릭 함수
+    public void btn_pastusage_clicked(View v){
+        Intent intent = new Intent(MainActivity.this, GraphActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         startActivity(intent);
     }

@@ -45,4 +45,8 @@
     <string name="pref_header_charge_plan">사용요금계획</string>
     <string name="pref_header_notifications">알림설정</string>
     <string name="pref_header_leave">탈퇴하기</string>
+    <string name="user_cur_pwd">현재 비밀번호</string>
+    <string name="str_read_date">검침일</string>
+    <string name="pref_header_logout">로그아웃</string>
+    <string name="str_usage">사용량 조회</string>
 </resources>
