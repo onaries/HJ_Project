@@ -19,7 +19,6 @@ PAYLOAD = 512
 ADDR = (HOST, PORT)
 
 # 데이터베이스 변수
-
 db_host = "localhost"
 db_user = "root"
 db_pwd = "275image"
@@ -84,7 +83,7 @@ while True:
 
                     # 맨 처음 데이터베이스에 값을 삽입
                     if count == 0:
-                        cursor = db.cursor();
+                        cursor = db.cursor()
                         # 날짜 같은 경우 d만 넣으면 될 것 같음
                         cursor.execute("INSERT INTO merchandise_energy (mer_id, time, energy_hour) VALUES (%s, %s, %s)" % (d))  # 변수 값 넣기
                         count = 1   # 한 번만 실행하고 값을 1로 바꿈
@@ -92,7 +91,7 @@ while True:
 
                     # 1시간에 1개의 튜플을 생성
                     if datetime.now().minute == 0:      # 1시간이 지났을 경우 (0분이 되었을 경우)
-                        cursor = db.cursor();
+                        cursor = db.cursor()
                         try:
                             cursor.execute("SQL 문")     # INSER INTO 문
                             print("INSERT INTO 문 실행")
@@ -102,7 +101,7 @@ while True:
                             db.rollback()
                             print("에러")
                     else:                               # 그 외의 경우
-                        cursor = db.cursor();
+                        cursor = db.cursor()
                         try:
                             cursor.execute("SQL 문")     # UPDATE SET 문
                             print("UPDATE SET 문 실행")
