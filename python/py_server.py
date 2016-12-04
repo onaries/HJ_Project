@@ -64,8 +64,8 @@ while True:
         m = d.minute
         s = d.second
 
-        # 1초 딜레이
-        tm.sleep(1)
+        # 1초 딜레이 필요없을 듯
+        # tm.sleep(1)
 
         for sock in read_socket:
             if sock == serverSocket:
@@ -91,7 +91,7 @@ while True:
 
 
                     # 1시간에 1개의 튜플을 생성
-                    if datetime.now().hour == m+1:      # 1시간이 지났을 경우
+                    if datetime.now().minute == 0:      # 1시간이 지났을 경우 (0분이 되었을 경우)
                         cursor = db.cursor();
                         try:
                             cursor.execute("SQL 문")     # INSER INTO 문
