@@ -102,14 +102,14 @@ while True:
                             db.rollback()
                             print("에러")
                     else:                               # 그 외의 경우
-                        # cursor = db.cursor();
+                        cursor = db.cursor();
                         try:
-                            # cursor.execute("SQL 문")     # UPDATE SET 문
+                            cursor.execute("SQL 문")     # UPDATE SET 문
                             print("UPDATE SET 문 실행")
                             print(datetime.now().second)
-                            # db.commit()
+                            db.commit()
                         except:
-                            # db.rollback()
+                            db.rollback()
                             print("에러")
 
     except KeyboardInterrupt:
