@@ -9,11 +9,17 @@
 
 	$email = $_GET["email"];	// 데이터 개수
 
-	$query = "SELECT * FROM user WHERE user_email = \"".$email."\"";
-	if($result = $mysqli->query($query)){
-		for($rows = array(); $row = $result->fetch_assoc(); $rows[] = $row);
+	if (empty($email)){
+		echo "no email";
 	}
-	echo json_encode($rows);
-
+	else {
+		$query = "SELECT * FROM user WHERE user_email = \"".$email."\"";
+		if($result = $mysqli->query($query)){
+			for($rows = array(); $row = $result->fetch_assoc(); $rows[] = $row);
+		}
+		echo json_encode($rows);
+	}
+	
+	
 	mysqli_close($mysqli);
 ?>

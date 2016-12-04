@@ -25,6 +25,10 @@ db_user = "root"
 db_pwd = "275image"
 db_name = "smartpowerman"
 
+# 처음에만 실행되게 하는 변수 지정
+
+count = 0
+
 # 데이터베이스 설정
 
 db = MySQLdb.connect(db_host, db_user, db_pwd, db_name);
@@ -74,16 +78,28 @@ while True:
                 if data:    # 데이터를 받으면
                     print("[INFO] [%s] RECEIVED : %s" % (ctime(), data))
 
+                    # 데이터 해석 부분 (구분자로 인한 )
+                    # mer_id, time,
+
+
+                    # 맨 처음 데이터베이스에 값을 삽입
+                    if count == 0:
+                        cursor = db.cursor();
+                        # 날짜 같은 경우 d만 넣으면 될 것 같음
+                        cursor.execute("INSERT INTO merchandise_energy (mer_id, time, energy_hour) VALUES (%s, %s, %s)" % (d))  # 변수 값 넣기
+                        count = 1   # 한 번만 실행하고 값을 1로 바꿈
+
+
                     # 1시간에 1개의 튜플을 생성
-                    if datetime.now().minute == m+1:      # 1시간이 지났을 경우
-                        # cursor = db.cursor();
+                    if datetime.now().hour == m+1:      # 1시간이 지났을 경우
+                        cursor = db.cursor();
                         try:
-                            # cursor.execute("SQL 문")     # INSER INTO 문
+                            cursor.execute("SQL 문")     # INSER INTO 문
                             print("INSERT INTO 문 실행")
                             print(datetime.now().second)
-                            # db.commit()
+                            db.commit()
                         except:
-                            # db.rollback()
+                            db.rollback()
                             print("에러")
                     else:                               # 그 외의 경우
                         # cursor = db.cursor();
